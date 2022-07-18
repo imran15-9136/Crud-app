@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { ReportViewComponent } from './report/report-view/report-view.component';
 
 const routes: Routes = [
   {
@@ -9,7 +12,16 @@ const routes: Routes = [
   {
     path:'report',
     loadChildren:() => import('./report/report.module').then(m=>m.ReportModule)
+  },
+  {
+    path:'',
+    component:LoginComponent
+  },
+  {
+    path:'**',
+    component: NotfoundComponent
   }
+
 ];
 
 @NgModule({
